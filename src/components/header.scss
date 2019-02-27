@@ -1,0 +1,36 @@
+@import "../vars";
+
+.header {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary-color;
+
+  &__item {
+    font-size: 20px;
+    padding: 10px 15px;
+    color: $secondary-color;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: rgba($secondary-color, 0.3);
+    }
+
+    &--active {
+      color: $primary-color;
+      background-color: $secondary-color;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}

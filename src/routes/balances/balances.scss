@@ -1,0 +1,18 @@
+@import "../../vars";
+
+.balances {
+  padding-top: 20px;
+
+  &__wallets {
+    display: flex;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    color: $text-color;
+  }
+}

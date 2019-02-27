@@ -7,8 +7,8 @@ export const Api = {
             res({
               base: "USD",
               rates: {
-                EUR: 1.1,
-                GBP: 1.2
+                EUR: 1.1 + Math.random() / 10,
+                GBP: 1.2 + Math.random() / 10
               }
             });
             break;
@@ -16,8 +16,8 @@ export const Api = {
             res({
               base: "EUR",
               rates: {
-                USD: 0.9,
-                GBP: 1.1
+                USD: 0.9 + Math.random() / 10,
+                GBP: 1.1 + Math.random() / 10
               }
             });
             break;
@@ -26,8 +26,8 @@ export const Api = {
             res({
               base: "GBP",
               rates: {
-                EUR: 0.9,
-                USD: 0.8
+                EUR: 0.9 + Math.random() / 10,
+                USD: 0.8 + Math.random() / 10
               }
             });
         }
