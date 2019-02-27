@@ -71,15 +71,11 @@ class Convert extends React.Component {
       <div>
         <ConverterInput
           value={sourceValue}
-          onChange={e => {
+          onChange={val => {
             this.setState({
-              sourceValue: e.target.value,
+              sourceValue: val,
               wasSourceChangedLast: true,
-              resultValue: this.convert(
-                sourceCurrency,
-                resultCurrency,
-                e.target.value
-              )
+              resultValue: this.convert(sourceCurrency, resultCurrency, val)
             });
           }}
         />
@@ -102,15 +98,11 @@ class Convert extends React.Component {
         />
         <ConverterInput
           value={resultValue}
-          onChange={e => {
+          onChange={val => {
             this.setState({
-              resultValue: e.target.value,
+              resultValue: val,
               wasSourceChangedLast: false,
-              sourceValue: this.convert(
-                resultCurrency,
-                sourceCurrency,
-                e.target.value
-              )
+              sourceValue: this.convert(resultCurrency, sourceCurrency, val)
             });
           }}
         />
