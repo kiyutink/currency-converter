@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./converterInput.scss";
 
 const sanitizeMoney = text => {
   // remove all characters that aren't digit or dot
@@ -14,23 +15,33 @@ const sanitizeMoney = text => {
   value = value.replace(/^0([^.].*)$/, "$1");
   // replace "." with "0."
   value = value.replace(/^\.(.*)$/, "0.$1");
+
+  if (/\./.test(value)) {
+    const [int, decimal] = value.split(".");
+    if (int.length > 10) {
+      value = int.substr(0, 10) + decimal;
+    }
+  } else {
+    value = value.substr(0, 10);
+  }
+
   return value;
 };
 
-export const ConverterInput = props => (
+export const ConverterInput = ({ value, onChange, autoFocus }) => (
   <input
+    autoFocus={autoFocus}
     type="text"
-    value={props.value}
+    value={value}
+    className="converterInput"
     onChange={e => {
-      props.onChange(sanitizeMoney(e.target.value));
+      onChange(sanitizeMoney(e.target.value));
     }}
   />
 );
 
 ConverterInput.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-};
-
-ConverterInput.propTypes = {
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  autoFocus: PropTypes.bool
 };

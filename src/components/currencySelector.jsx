@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { signMapping } from "../shared/currencyMappings";
+import "./currencySelector.scss";
 
 export const CurrencySelector = ({
   onChange,
@@ -33,10 +35,18 @@ export const CurrencySelector = ({
   };
 
   return (
-    <div>
-      <div onClick={prev}>up</div>
-      {availableCurrencies[currentIndex]}
-      <div onClick={next}>down</div>
+    <div className="currencySelector">
+      <button
+        className="currencySelector__button currencySelector__button--prev"
+        onClick={prev}
+      />
+      <div className="currencySelector__sign">
+        {signMapping[availableCurrencies[currentIndex]]}
+      </div>
+      <button
+        className="currencySelector__button currencySelector__button--next"
+        onClick={next}
+      />
     </div>
   );
 };

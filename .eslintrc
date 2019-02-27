@@ -64,7 +64,7 @@
     ],
     "max-nested-callbacks": ["error", 4],
     "max-params": "error",
-    "max-statements": "error",
+    "max-statements": ["error", 50],
     "new-cap": "error",
     "no-multi-assign": "error",
     "no-nested-ternary": "error",

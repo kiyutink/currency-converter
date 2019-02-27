@@ -1,18 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./walletBalance.scss";
-
-const nameMapping = {
-  EUR: "Euros",
-  GBP: "Pounds",
-  USD: "Dollars"
-};
-
-const signMapping = {
-  USD: "$",
-  EUR: "€",
-  GBP: "£"
-};
+import { nameMapping, signMapping } from "../shared/currencyMappings";
 
 export const WalletBalance = ({ currency, balance }) => (
   <div className="walletBalance">
