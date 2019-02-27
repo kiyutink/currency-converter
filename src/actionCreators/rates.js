@@ -5,19 +5,11 @@ export const updateRates = () => dispatch => {
     type: "UPDATE_RATES_REQUEST"
   });
 
-  Promise.all([
-    Api.getRates("EUR"),
-    Api.getRates("USD"),
-    Api.getRates("GBP")
-  ]).then(
-    ([eur, usd, gbp]) => {
+  Api.getRates().then(
+    response => {
       dispatch({
         type: "UPDATE_RATES_RESPONSE",
-        rates: {
-          EUR: eur.rates,
-          GBP: gbp.rates,
-          USD: usd.rates
-        }
+        rates: response.rates
       });
     },
     err => {

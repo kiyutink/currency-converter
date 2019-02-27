@@ -11,7 +11,6 @@ const mapStateToProps = state => ({
 let Balances = ({ wallets }) => (
   <div className="balances">
     <h1 className="balances__header">Balances</h1>
-
     <div className="balances__wallets">
       {Object.keys(wallets).map(key => {
         const wallet = wallets[key];

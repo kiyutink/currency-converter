@@ -33,6 +33,13 @@ class Convert extends React.Component {
     };
   }
 
+  static propTypes = {
+    rates: PropTypes.object,
+    balances: PropTypes.object,
+    addToBalance: PropTypes.func,
+    subtractFromBalance: PropTypes.func
+  };
+
   componentDidUpdate(prevProps) {
     const {
       wasSourceChangedLast,
@@ -44,8 +51,8 @@ class Convert extends React.Component {
     if (
       this.props.rates &&
       prevProps.rates &&
-      this.props.rates[resultCurrency][sourceCurrency] ===
-        prevProps.rates[resultCurrency][sourceCurrency]
+      this.props.rates[resultCurrency] === prevProps.rates[resultCurrency] &&
+      this.props.rates[sourceCurrency] === prevProps.rates[sourceCurrency]
     ) {
       return;
     }
@@ -61,17 +68,13 @@ class Convert extends React.Component {
     }
   }
 
-  getRate = (fromCurrency, toCurrency) =>
-    fromCurrency === toCurrency
-      ? 1
-      : this.props.rates[toCurrency][fromCurrency];
-
   convert = (fromCurrency, toCurrency, fromValue) => {
+    const { rates } = this.props;
     if (fromValue === "") {
       return "";
     }
 
-    return (+fromValue * this.getRate(fromCurrency, toCurrency)).toFixed(2);
+    return (+fromValue * (rates[toCurrency] / rates[fromCurrency])).toFixed(2);
   };
 
   isConversionPossible = () => {
@@ -191,8 +194,8 @@ class Convert extends React.Component {
           {signMapping[resultCurrency]}
         </div>
         <div className="convert__hint--rate">
-          1 {signMapping[sourceCurrency]} ={" "}
-          {this.getRate(sourceCurrency, resultCurrency).toFixed(2)}{" "}
+          1.00 {signMapping[sourceCurrency]} ={" "}
+          {(rates[resultCurrency] / rates[sourceCurrency]).toFixed(2)}{" "}
           {signMapping[resultCurrency]}
         </div>
 
@@ -209,13 +212,6 @@ class Convert extends React.Component {
     );
   }
 }
-
-Convert.propTypes = {
-  rates: PropTypes.object,
-  balances: PropTypes.object,
-  addToBalance: PropTypes.func,
-  subtractFromBalance: PropTypes.func
-};
 
 Convert = connect(
   mapStateToProps,

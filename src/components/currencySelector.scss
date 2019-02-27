@@ -32,8 +32,7 @@
       height: 0;
       border-style: solid;
       border-width: 0 15px 20px 15px;
-      border-color: transparent transparent lighten($primary-color, 20%)
-        transparent;
+      border-color: transparent transparent $primary-color transparent;
       content: "";
     }
 
