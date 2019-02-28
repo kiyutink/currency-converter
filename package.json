@@ -43,6 +43,7 @@
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.1.0",
     "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
     "eslint": "^5.12.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-loader": "^2.1.0",
@@ -60,6 +61,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.15.3",
+    "redux-mock-store": "^1.5.3",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.23.1",
     "stylelint": "^9.10.0",
@@ -89,5 +91,10 @@
       "pre-commit": "lint-staged"
     }
   },
-  "browserslist": ">0.5% and last 2 version and not ie 10 and not op_mini all and not and_uc 1-100"
+  "browserslist": ">0.5% and last 2 version and not ie 10 and not op_mini all and not and_uc 1-100",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.scss$": "<rootDir>/src/__mocks__/styleMock.js"
+    }
+  }
 }
