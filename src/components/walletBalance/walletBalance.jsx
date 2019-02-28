@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./walletBalance.scss";
-import { nameMapping, signMapping } from "../shared/currencyMappings";
+import { nameMapping, signMapping } from "../../shared/currencyMappings";
 
 export const WalletBalance = ({ currency, balance }) => (
   <div className="walletBalance">

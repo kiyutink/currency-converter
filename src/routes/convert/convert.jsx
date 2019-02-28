@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { ConverterInput } from "../../components/converterInput";
-import { CurrencySelector } from "../../components/currencySelector";
+import { ConverterInput } from "../../components/converterInput/converterInput";
+import { CurrencySelector } from "../../components/currencySelector/currencySelector";
 import "./convert.scss";
 import { signMapping } from "../../shared/currencyMappings";
 import classNames from "classnames";

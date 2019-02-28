@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router";
-import { Balances } from "../routes/balances/balances";
-import { Convert } from "../routes/convert/convert";
-import { Header } from "./header";
-import { updateRates } from "../actionCreators/rates";
+import { Balances } from "../../routes/balances/balances";
+import { Convert } from "../../routes/convert/convert";
+import { Header } from "../header/header";
+import { updateRates } from "../../actionCreators/rates";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import "./app.scss";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { signMapping } from "../shared/currencyMappings";
+import { signMapping } from "../../shared/currencyMappings";
 import "./currencySelector.scss";
 
 export const CurrencySelector = ({
