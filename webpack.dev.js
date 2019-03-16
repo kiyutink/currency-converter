@@ -5,7 +5,8 @@ module.exports = merge(common, {
   mode: "development",
   devServer: {
     historyApiFallback: true,
-    contentBase: __dirname
+    contentBase: __dirname,
+    disableHostCheck: true
   },
   devtool: "source-map",
   module: {
